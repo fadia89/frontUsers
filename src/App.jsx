@@ -135,8 +135,8 @@ const App = () => {
           <input
             type="text"
             placeholder="Hobby"
-            value={newHobby} // Utilise la valeur actuelle de newHobby
-            onChange={(e) => setNewHobby(e.target.value)} // Met à jour `newHobby`
+            value={newHobby} 
+            onChange={(e) => setNewHobby(e.target.value)} 
           />
           <button type="button" onClick={handleAddHobby}>Ajouter un hobby</button>
 
