@@ -7,7 +7,7 @@ const App = () => {
   const [users, setUsers] = useState([]); 
 
   //Indique si les données sont en cours de chargement
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
 
   //Stocke l'erreur si elle se produit
   const [error, setError] = useState()
@@ -15,10 +15,12 @@ const App = () => {
   // Fonction pour récupérer les utilisateurs depuis l'API
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:{PORT}/api/users'); 
+      setLoading(true); // On commence à charger les données
+      const response = await axios.get('http://localhost:8000/api/users'); 
       setUsers(response.data);
     } catch (err) {
       console.log('Erreur :', err);
+      setLoading(false); // On arrête de charger 
     }
   };
 
