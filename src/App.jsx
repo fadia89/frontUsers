@@ -40,7 +40,7 @@ const App = () => {
       {error && <p>{error}</p>}
       
 
-      {users && users.length > 0 ? (
+      {users && 
         users.map((user, index) => (
           <div key={index} className="user-card">
             <h3>First Name: {user.firstName}</h3>
@@ -54,10 +54,9 @@ const App = () => {
               ))}
             </ul>
           </div>
-        ))
-      ) : (
-        <p>No users found.</p>
-      )}
+        )
+      ) 
+    }
     </div>
   );
 };
