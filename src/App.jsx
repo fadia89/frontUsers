@@ -20,6 +20,8 @@ const App = () => {
       setUsers(response.data);
     } catch (err) {
       console.log('Erreur :', err);
+      
+    } finally {
       setLoading(false); // On arrête de charger 
     }
   };
@@ -31,6 +33,12 @@ const App = () => {
   return (
     <div className="app-container">
       <h1>Hello users!</h1>
+      
+      {/* Affiche le message de chargement si la donnée est en cours de récupération */}
+      {loading && <p>Chargement...</p>}
+      {/* Affiche un message d'erreur en cas d'échec */}
+      {error && <p>{error}</p>}
+      
 
       {users && users.length > 0 ? (
         users.map((user, index) => (
